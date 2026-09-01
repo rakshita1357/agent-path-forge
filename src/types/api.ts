@@ -13,42 +13,41 @@ export interface Resource {
   title: string;
   url: string;
   type: string;
-  estimated_time?: string;
+  duration: string;
+  reason: string;
 }
 
 export interface Module {
   id: number;
-  title: string;
+  module_name: string;
   description: string;
-  estimated_duration: string;
   skills_covered: string[];
   resources: Resource[];
-  prerequisites: number[];
-  order: number;
+  why_needed: string;
+  estimated_time: string;
 }
 
-export interface MarketAnalysis {
-  job_demand: string;
-  salary_range: string;
-  key_companies: string[];
-  trending_skills: string[];
+export interface MarketTrend {
+  skill: string;
+  demand_level: string;
+  growth_metric: string;
 }
 
 export interface AgentLog {
   agent_name: string;
-  log_message: string;
+  action: string;
   timestamp: string;
 }
 
 export interface RoadmapResponse {
-  modules: Module[];
-  market_analysis?: MarketAnalysis;
+  roadmap: Module[];
+  market_analysis?: MarketTrend[];
   agent_logs?: AgentLog[];
 }
 
 export interface ConversationResponse {
-  conversation_id: string;
-  roadmap_id: string;
+  conversation_id: number;
+  roadmap_id: number;
   created_at: string;
 }
 
